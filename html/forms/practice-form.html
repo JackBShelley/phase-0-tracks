@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Practice Form</title>
+</head>
+<body>
+
+	<h1>Character Creation</h1>
+
+	<form action="success.html" method="post">
+  <div>
+    <label>Name:</label>
+    <input type="text" name="name">
+  </div>
+  <div>
+  
+           <div> <label>Class:</label>
+      <select name="Species">
+        <option value="rogue">Rogue</option>
+        <option value="warrior">Warrior</option>
+        <option value="mage">Mage</option> 
+        <option value="paladin">Paladin</option> 
+      </select>
+  </div>
+
+       <div> <label>Species:</label>
+      <select name="Species">
+        <option value="Human">Human??</option>
+        <option value="Arachnid">Arachnid</option>
+        <option value="lizard">Anthropromorphic Lizard</option> 
+        <option value="Orc">Orc</option> 
+      </select>
+  </div>
+
+      <div>
+      	<textarea rows="3" cols="70">
+Short Character Description
+</textarea></div>
+
+<div> Character Age:
+  <input type="number" name="age" ></div>
+
+  <div>
+
+  	<p><strong>Alignment</strong></p>
+
+
+  	<form>
+  <input type="radio" name="alignement" value="Lawful" checked> Lawful<br>
+  <input type="radio" name="alignement" value="Nuetral"> Nuetral<br>
+  <input type="radio" name="alignement" value="Chaotic"> Chaotic
+</form>
+</div>
+
+
+ <p><button type="submit">Submit</button></p>
+
+</form>
+
+</body>
+</html>
