@@ -1,3 +1,13 @@
 #contact-info p {
 	font-size: .8em;
 }
+section.job {
+	background-color: #e9e5dc;
+	padding: 6px;
+	border-radius: 10px;
+
+}
+
+.accomplishments {
+	font-size: .8em;
+}
