@@ -1,5 +1,11 @@
 #contact-info p {
 	font-size: .8em;
+
+}
+
+section:hover{
+	background-color: red;
+
 }
 section.job {
 	background-color: #e9e5dc;
@@ -11,3 +17,9 @@ section.job {
 .accomplishments {
 	font-size: .8em;
 }
+
+
+section > ul {
+	background-color: grey;
+}
+
