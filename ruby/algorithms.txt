@@ -1,0 +1,54 @@
+
+Elevator Operation Protocol
+
+-Determine current floor (cfloor)
+-Determine objective floor (ofloor)
+-Press arrow button to open elevator door
+	-If ofloor1>cfloor press up arrow
+	-If ofloor1<cfloor press down arrow 
+	-If ofloor1=cfloor do nothing. End
+-Wait for doors to open 
+-Walk forward until you are past the doors
+-Turn 180 degrees 
+	-If elevator panel i	s on the left, take step left
+	-If elevator panel is on the right, take step right 
+-Find elevator panel with numbered buttons
+-Press button=ofloor 	
+	-If ofloor2, ofloor3, ofloor4, or ofloor5 have values above 0, press those buttons 	as well.
+	-If the voice command “Hold the doors!” is received, press close door button 		repeatadly until doors close
+	-Otherwise send message “No objective floor”
+		-If elevator panel is on the left, take step right
+		-If elevator panel is on the right, take step left 
+			-Walk forward until you are out of elevator
+				-End
+-Wait until doors open 
+	-If this is ofloor1
+		-If elevator panel is on the left, take step right
+		-If elevator panel is on the right, take step left 
+			-Walk forward until you are out of elevator
+	-Otherwise wait until ofloor1 is reached
+-End
+
+
+
+
+Dog Petting Protocol
+
+-Take right hand and place it palm down on dogs head
+	-If there is no dog, wait until there is a dog
+	-If palm is not on dog, rotate hand until the palm is down
+	-Otherwise continue
+-Move hand down dog from head towards tail
+-Keep hand pressed firmly down on dog
+	-If you find your hand no longer on the dog
+		-Lower hand until it is on dog
+		-Or Locate dog
+			-If dog is right, move hand right
+			-If dog is left, move hand left
+			-If dog is forward, move hand forward
+			-If dog is back, move hand back
+		-Otherwise wait until dog returns
+-Keep moving hand down dog until it reaches tail
+-When tail is reached, place it once again on the dogs head
+-Repeat forever until dog is no longer there
+	-When dog is there, repeat
