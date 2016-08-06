@@ -1,0 +1,43 @@
+body {
+	font-family: "Arail", Arial, serif; 
+}
+
+header {
+	width: 70%;
+	text-align: center;
+	margin-left: 15%;
+	margin-right: 15%;
+	padding-bottom: 40px;
+}
+
+section{
+	border-width: 2px;
+	border-style: solid;
+	width: 49%;
+	height: 970px;
+}
+
+h2 {
+	color: black;
+}
+.column-1{
+	color: blue;
+	float: left;
+	text-align: center;
+
+}
+
+.column-2{
+	color: red;
+	float: right;
+	text-align: center;
+}
+
+footer {
+	margin-top: 1000px;
+	width: 34%;
+	text-align: center;
+	margin-right: 30%;
+	margin-left: 30%;
+}
+
