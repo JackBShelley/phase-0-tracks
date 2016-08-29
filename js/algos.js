@@ -60,9 +60,9 @@ function array_maker(int) {
 	return(array)
 }
 
-longest_word(["one", "nine", "hamburger", "toads"]);
-longest_word(["superlongword", "smol", "tiny", "little"]);
-longest_word(["Wow", "Ok"]);
+// longest_word(["one", "nine", "hamburger", "toads"]);
+// longest_word(["superlongword", "smol", "tiny", "little"]);
+// longest_word(["Wow", "Ok"]);
 
 // shared_pair({name: "Steven", age: 54}, {name: "Tamir", age: 54});
 // shared_pair({name: "Steven", age: 26}, {name: "Tamir", age: 23});
@@ -72,11 +72,45 @@ longest_word(["Wow", "Ok"]);
 // array_maker(9);
 // array_maker(10);
 
-for (var i = 0; i < 5; i++) {
-	console.log("swag")
-}
+//I could not get this loop to loop ten times
+// I'm not sure why. So i just ended up doing it the simple way
+// //for(var i = 0; i < 5; i++) {
+// 	var new_array = array_maker(3);
+// 	longest_word(new_array)
+// }
 
-console.log('swag')
+var new_array = array_maker(3);
+longest_word(new_array)
+
+var new_array = array_maker(3);
+longest_word(new_array)
+
+var new_array = array_maker(3);
+longest_word(new_array)
+
+var new_array = array_maker(3);
+longest_word(new_array)
+
+var new_array = array_maker(3);
+longest_word(new_array)
+
+var new_array = array_maker(3);
+longest_word(new_array)
+
+var new_array = array_maker(3);
+longest_word(new_array)
+
+var new_array = array_maker(3);
+longest_word(new_array)
+
+var new_array = array_maker(3);
+longest_word(new_array)
+
+var new_array = array_maker(3);
+longest_word(new_array)
+
+
+
 
 
 
