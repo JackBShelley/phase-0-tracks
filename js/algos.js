@@ -13,6 +13,7 @@ function longest_word(arr){
 		}
 	}
 	console.log(longest)
+	return(longest)
 }
 
 //ok so I originally psuedocoded something different
@@ -32,8 +33,32 @@ function shared_pair(obj1, obj2){
 	  	}
 }
 	console.log(answer)
+	return(answer)
 }
 
+//create function array_maker that takes an integers as an argument
+//create empty array
+//find way to create randomized strings
+//loop and create a random string for the amount of the integer
+//store the result in empty array
+//return the array
+
+function array_maker(int) {
+	var array = []
+    var possible = "abcdefghijklmnopqrstuvwxyz";
+    
+	
+	for (i = 0; i < int; i++) { 
+	var text = "";
+		for( var x=0; x < Math.random() * (0 + 11); x++ ){
+			text += possible.charAt(Math.floor(Math.random() * possible.length))}
+    			 
+    array[i] = text;
+	}
+
+	console.log(array)
+	return(array)
+}
 
 longest_word(["one", "nine", "hamburger", "toads"]);
 longest_word(["superlongword", "smol", "tiny", "little"]);
@@ -43,3 +68,6 @@ shared_pair({name: "Steven", age: 54}, {name: "Tamir", age: 54});
 shared_pair({name: "Steven", age: 26}, {name: "Tamir", age: 23});
 shared_pair({name: "To7m", age: 219}, {name: "Tom", age: 2197});
 
+array_maker(5);
+array_maker(9);
+array_maker(10);
