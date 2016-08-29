@@ -15,27 +15,31 @@ function longest_word(arr){
 	console.log(longest)
 }
 
-
+//ok so I originally psuedocoded something different
+//this psudeocode was written AS I was learning new javascript stuff
+//create shared pair function that takes two objects as an argument
+//create answer variable that defaults to false
+//create if statement that compares each key pair
+//if any key pair matches, give answer variable value of true
+//return answer
 
 function shared_pair(obj1, obj2){
-	for (var i = 0; i < 2; i++) {
-		
-		if (obj1.name === obj2.name) {
-			return true;
-		}
-		else if (obj1.age === obj2.age) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+	var answer = false;
+	for (var key in obj1) {
+	  if (obj1.hasOwnProperty(key))
+	  	if (obj1[key] === obj2[key]){
+	  		answer = true;
+	  	}
 }
+	console.log(answer)
+}
+
 
 longest_word(["one", "nine", "hamburger", "toads"]);
 longest_word(["superlongword", "smol", "tiny", "little"]);
 longest_word(["Wow", "Ok"]);
 
-
 shared_pair({name: "Steven", age: 54}, {name: "Tamir", age: 54});
-shared_pair({name: "Steven", age: 54}, {name: "Tamir", age: 53});
+shared_pair({name: "Steven", age: 26}, {name: "Tamir", age: 23});
+shared_pair({name: "To7m", age: 219}, {name: "Tom", age: 2197});
+
