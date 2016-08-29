@@ -64,10 +64,19 @@ longest_word(["one", "nine", "hamburger", "toads"]);
 longest_word(["superlongword", "smol", "tiny", "little"]);
 longest_word(["Wow", "Ok"]);
 
-shared_pair({name: "Steven", age: 54}, {name: "Tamir", age: 54});
-shared_pair({name: "Steven", age: 26}, {name: "Tamir", age: 23});
-shared_pair({name: "To7m", age: 219}, {name: "Tom", age: 2197});
+// shared_pair({name: "Steven", age: 54}, {name: "Tamir", age: 54});
+// shared_pair({name: "Steven", age: 26}, {name: "Tamir", age: 23});
+// shared_pair({name: "To7m", age: 219}, {name: "Tom", age: 2197});
 
-array_maker(5);
-array_maker(9);
-array_maker(10);
+// array_maker(5);
+// array_maker(9);
+// array_maker(10);
+
+for (var i = 0; i < 5; i++) {
+	console.log("swag")
+}
+
+console.log('swag')
+
+
+
