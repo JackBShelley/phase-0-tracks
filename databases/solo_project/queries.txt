@@ -1,0 +1,50 @@
+Display the information in one table
+
+sqlite> SELECT * FROM dungeon_party;
+1|Trogdog|Lawful Neutral|65|3
+2|Khajjir|Neutral Good|42|5
+3|Barne|Lawful Good|74|2
+4|Nacrothis|Chaotic Evil|57|1
+
+Update an item that meets some condition
+
+sqlite> SELECT * FROM dungeon_party WHERE alignment="Neutral Good";
+2|Khajjir|Neutral Good|42|5
+
+Display the information in both tables using one query.
+
+sqlite> SELECT * FROM dungeon_party, class WHERE dungeon_party.class_id = class.id;
+1|Trogdog|Lawful Neutral|65|3|3|Barbarian
+2|Khajjir|Neutral Good|42|5|5|Cleric
+3|Barne|Lawful Good|74|2|2|Paladin
+4|Nacrothis|Chaotic Evil|57|1|1|Mage
+
+Display a narrower selection of columns 
+
+sqlite> SELECT dungeon_party.name, class.class_name FROM dungeon_party JOIN class ON dungeon_party.id = class.id;
+Trogdog|Mage
+Khajjir|Paladin
+Barne|Barbarian
+Nacrothis|Rogue
+
+Delete an item that meets some condition 
+
+sqlite> DELETE FROM dungeon_party WHERE alignment = "Chaotic Evil”;
+sqlite> SELECT * FROM dungeon_party;
+1|Trogdog|Lawful Neutral|65|3
+2|Khajjir|Neutral Good|42|5
+3|Barne|Lawful Good|74|2
+
+
+
+sqlite> SELECT name, alignment, level FROM dungeon_party INNER JOIN class ON dungeon_party.class_id = class.id;
+Trogdog|Lawful Neutral|65
+Khajjir|Neutral Good|42
+Barne|Lawful Good|74
+
+sqlite> SELECT class_name FROM class LEFT OUTER JOIN dungeon_party ON dungeon_party.class_id = class.id;
+Mage
+Paladin
+Barbarian
+Rogue
+Cleric
