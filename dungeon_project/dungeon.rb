@@ -39,12 +39,13 @@ def character_creation
 
   puts "#{name} is a #{age} year old #{c_class}"
   puts "You character #{name} has been added to the party."
+  puts " "
 end
 
 # #retrieve data for character name
 # #retrive party data
 
-def print_character_info
+def character_info
 	puts "Character information:
 	(1). Character classes
 	(2). Current characters
@@ -52,13 +53,15 @@ def print_character_info
 	character_input = gets.chomp
 
 	if character_input == "1"
-		p "here's all the stuff"
+		puts ""
+		print_class_info
 	elsif character_input == "2"
 		p "here's all the other stuff"
 	elsif character_input == "0"
 		main_menu
 	else
 		puts "Please enter valid number"
+		character_info
 	end
 end
 
@@ -66,7 +69,27 @@ def print_party_info
 	$DATABASE.execute("")
 end
 
-def print_class_info(class_name, description)
+def print_class_info
+	puts "Enter class number for information"
+	c_name_hash = $DATABASE.execute("SELECT class_name FROM classes;")
+
+	i = 0
+	c_name_hash.each do |name|
+		i += 1
+		puts "(#{i}) #{name["class_name"]}"
+	end
+	puts "(0) <---Back"
+	puts ""
+	puts "Enter number for info on class"
+	class_input = gets.chomp.to_i
+
+	if class_input == 0
+		character_info
+	elsif 
+		puts "#{$DATABASE.execute("SELECT name FROM classes WHERE id = #{class_input}")}"
+	end
+
+	print_class_info
 
 end
 
@@ -97,7 +120,7 @@ def main_menu
 		puts "Beginning character creation..."
 		character_creation
 	elsif  menu_input == "2"
-		print_character_info
+		character_info
 	elsif  menu_input == "3"
 		puts "Print party information..."
 	elsif  menu_input == "4"
