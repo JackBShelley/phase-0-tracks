@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 #require sqlite
 
+=======
+#require sqlite, other ruby files
+
+require_relative "character"
+>>>>>>> dungeon_branch
 require 'sqlite3'
 
 #create sqlite database for user info
@@ -16,14 +22,23 @@ create_table = <<-SQLITE3
     id INTEGER PRIMARY KEY,
     name VARCHAR(255),
     age INT,
+<<<<<<< HEAD
     class VARCHAR(255)
   );
+=======
+    c_class VARCHAR(255)
+  )
+>>>>>>> dungeon_branch
 
   CREATE TABLE IF NOT EXISTS classes(
     id INTEGER PRIMARY KEY,
     name VARCHAR(255),
     description VARCHAR(255)
+<<<<<<< HEAD
   );
+=======
+  )
+>>>>>>> dungeon_branch
 
   CREATE TABLE IF NOT EXISTS inventory(
     id INTEGER PRIMARY KEY,
@@ -35,6 +50,7 @@ SQLITE3
 
 db.execute(create_table)
 
+<<<<<<< HEAD
 #character creation method
 #ask for name, age, give class options along with description
 #short bio
@@ -51,6 +67,8 @@ db.execute(create_table)
 # end
 
 
+=======
+>>>>>>> dungeon_branch
 #dice method
 #roll d4, d6, d8, d10, d12, d20 (allow multiple rolls and print message)
 #store last roll
