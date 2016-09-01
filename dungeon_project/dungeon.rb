@@ -38,14 +38,28 @@ def character_creation
   $DATABASE.execute("INSERT INTO characters (name, age, c_class) VALUES (?, ?, ?)", [name, age, c_class])
 
   puts "#{name} is a #{age} year old #{c_class}"
+  puts "You character #{name} has been added to the party."
 end
 
 # #retrieve data for character name
 # #retrive party data
 
 def print_character_info
+	puts "Character information:
+	(1). Character classes
+	(2). Current characters
+	(0). <---Back"
+	character_input = gets.chomp
 
-
+	if character_input == "1"
+		p "here's all the stuff"
+	elsif character_input == "2"
+		p "here's all the other stuff"
+	elsif character_input == "0"
+		main_menu
+	else
+		puts "Please enter valid number"
+	end
 end
 
 def print_party_info
@@ -66,39 +80,39 @@ SQLITE3
 
 $DATABASE.execute(create_classes)
 
-
 #allow user to select actions
+def main_menu
+	puts "Hello! What would you like to do?
+	(1) Create new character
+	(2) Character information
+	(3) Party information
+	(4) Monster Index
+	(5) World Information
+	(0) Exit
+	"
 
+	menu_input =  gets.chomp
 
-puts "Hello! What would you like to do?
-(1) Create new character
-(2) Print character information
-(3) Print party information
-(4) Monster Index
-(5) World Information
-(0) Exit
-"
+	if menu_input == "1"
+		puts "Beginning character creation..."
+		character_creation
+	elsif  menu_input == "2"
+		print_character_info
+	elsif  menu_input == "3"
+		puts "Print party information..."
+	elsif  menu_input == "4"
+		puts "Starting monster index..."
+	elsif  menu_input == "5"
+		puts "Printing world information..."
+	elsif  menu_input == "0"
+		abort('Thank you!')
+	else 
+		puts "Please enter valid number"
+	end
 
-menu_input =  gets.chomp
-
-if menu_input == "1"
-	puts "Beginning character creation..."
-	character_creation
-elsif  menu_input == "2"
-	puts "Print character information..."
-elsif  menu_input == "3"
-	puts "Print party information..."
-elsif  menu_input == "4"
-	puts "Starting monster index..."
-elsif  menu_input == "5"
-	puts "Printing world information..."
-elsif  menu_input == "0"
-	abort('Thank you!')
-else 
-	puts "Please enter valid number"
 end
 
-
+main_menu
 
 
 #dice method
