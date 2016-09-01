@@ -17,7 +17,7 @@ create_table = <<-SQLITE3
     id INTEGER PRIMARY KEY,
     name VARCHAR(255),
     age INT,
-    class VARCHAR(255)
+    c_class VARCHAR(255)
   )
 
   CREATE TABLE IF NOT EXISTS classes(
@@ -35,9 +35,6 @@ create_table = <<-SQLITE3
 SQLITE3
 
 db.execute(create_table)
-
-thing = "swag"
-p thing
 
 #dice method
 #roll d4, d6, d8, d10, d12, d20 (allow multiple rolls and print message)
