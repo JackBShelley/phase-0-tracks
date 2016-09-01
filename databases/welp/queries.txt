@@ -1,0 +1,23 @@
+sqlite> SELECT * FROM users LEFT OUTER JOIN reviews ON users.id = user_id LEFT OUTER JOIN businesses ON businesses.id = business_id;
+1|Mandy|Kaling|2|3|Excellent Food|2|1|2|Lotus Yoga
+1|Mandy|Kaling|1|5|Good Stuff|1|1|1|Amir's Towing
+2|Bradford|Pitt|6|3|Alright|1|2|1|Amir's Towing
+3|Steven|Wonder|4|1|Awful|1|3|1|Amir's Towing
+3|Steven|Wonder|5|3|Alright|1|3|1|Amir's Towing
+3|Steven|Wonder|3|4|Heck yeah!|2|3|2|Lotus Yoga
+
+
+sqlite>  SELECT users.first_name, users.last_name, businesses.name, reviews.stars FROM users LEFT OUTER JOIN reviews ON users.id = user_id LEFT OUTER JOIN businesses ON businesses.id = business_id
+   ...> ;
+Mandy|Kaling|Lotus Yoga|3
+Mandy|Kaling|Amir's Towing|5
+Bradford|Pitt|Amir's Towing|3
+Steven|Wonder|Amir's Towing|1
+Steven|Wonder|Amir's Towing|3
+Steven|Wonder|Lotus Yoga|4
+
+sqlite>  SELECT users.first_name, users.last_name, businesses.name, reviews.stars FROM users LEFT OUTER JOIN reviews ON users.id = user_id LEFT OUTER JOIN businesses ON businesses.id = business_id WHERE businesses.name = "Amir's Towing";
+Mandy|Kaling|Amir's Towing|5
+Bradford|Pitt|Amir's Towing|3
+Steven|Wonder|Amir's Towing|1
+Steven|Wonder|Amir's Towing|3
