@@ -1,0 +1,14 @@
+
+  INSERT INTO classes (class_name, description) VALUES ("Mage","Basic magic user. High intelligience, low HP.");
+  INSERT INTO classes (class_name, description) VALUES ("Paladin","Warrior of the gods. High strength and faith.");
+  INSERT INTO classes (class_name, description) VALUES ("Barbarian","Ruthless killer, very high strength, ver low intelligience");
+  INSERT INTO classes (class_name, description) VALUES ("Necromancer","Commander of the dead. High intelligience, typically evil...");
+  INSERT INTO classes (class_name, description) VALUES ("Bard","Charismatic and musically gifted. Useless in combat.");
+  INSERT INTO classes (class_name, description) VALUES ("Thief","Fast and agile, excellent at stealth and lockpicking");
+  INSERT INTO classes (class_name, description) VALUES ("Rogue","Master of the bow. High dexterity and perception");
+  INSERT INTO classes (class_name, description) VALUES ("Mercenary","Only in it for the gold. Especially good with the longsword");
+  INSERT INTO classes (class_name, description) VALUES ("Soldier","Skilled with the sword and shield. Well equipped and well traveled");
+  INSERT INTO classes (class_name, description) VALUES ("Cleric","A healer of the high church. An excellent resource for any party");
+  INSERT INTO classes (class_name, description) VALUES ("Monk","Unbelievably skilled in unarmed combat. They could just surprise you...");
+  INSERT INTO classes (class_name, description) VALUES ("Druid","Friend of the forest. Excellent healing powers and very strong");
+  INSERT INTO classes (class_name, description) VALUES ("Deprived","A waste of flesh. Unbelievably useless, just awful.");
