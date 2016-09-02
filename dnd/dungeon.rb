@@ -1,5 +1,9 @@
 require 'sqlite3'
-require_relative 'characters', 'character_creation', 'party', 'monsters', 'world'
+require_relative 'characters' 
+require_relative 'character_creation'
+require_relative 'party'
+require_relative 'monsters'
+require_relative 'world'
 
 def main_menu
 	puts ""
@@ -16,11 +20,11 @@ def main_menu
 	if user_input == "1"
 		character_information
 	elsif user_input == "2"
-		p "Character creation"
+		character_creation
 	elsif user_input == "3"
-		p "party information"
+		party_info
 	elsif user_input == "4"
-		p "Monster index"
+		monster_index
 	elsif user_input == "5"
 		p "world information"
 	elsif user_input == "0"
