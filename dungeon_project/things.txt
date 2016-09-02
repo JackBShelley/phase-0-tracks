@@ -119,10 +119,9 @@ def print_class_info
 	end
 end
 
-sqlite> select characters.name, classes.name FROM characters JOIN classes ON characters.class_id = classes.id;
+select characters.name, classes.name FROM characters JOIN classes ON characters.class_id = classes.id;
 
-
-
+SELECT realms.name, world.name, realms.description FROM realms JOIN world ON realms.world_id = world.id;
 
 
 

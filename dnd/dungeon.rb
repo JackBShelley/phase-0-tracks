@@ -29,7 +29,7 @@ def main_menu
 	elsif user_input == "4"
 		monster_index
 	elsif user_input == "5"
-		p "world information"
+		world_info
 	elsif user_input == "0"
 		abort("Thank You")
 	else 

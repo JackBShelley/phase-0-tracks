@@ -1,3 +1,6 @@
+require 'sqlite3'
+
+
 def party_info
 		puts ""
 	puts "Party Information:

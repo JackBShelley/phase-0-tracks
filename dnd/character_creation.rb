@@ -1,3 +1,5 @@
+require 'sqlite3'
+
 def character_creation
 	puts "Create new character? (Y/N)"
 	user_input = gets.chomp
