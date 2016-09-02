@@ -59,6 +59,3 @@ puts " "
   end
 end
 
-def character_info
-
-end
