@@ -16,7 +16,7 @@ def monster_index
   elsif character_input == "3"
     add_monster
   elsif character_input == "4"
-    "delete monster"
+    delete_monster
   elsif character_input == "0"
     main_menu
   else
@@ -78,3 +78,31 @@ def add_monster
 
   monster_index
 end
+
+def delete_monster
+  puts "What monster would you like to delete? 0 to go back"
+  user_input = gets.chomp
+  monster_names = $DATABASE.execute("SELECT name FROM monsters;")
+  monster_name_array = []
+  monster_names.each do |monster|
+    monster_name_array << monster["name"]
+  end
+
+  if monster_name_array.include?(user_input) == true
+    puts "Deleting #{user_input} from monster index..."
+    puts "#{$DATABASE.execute("Select name from monsters where name = #{user_input}")}"
+  elsif user_input == "0"
+    monster_index
+  elsif monster_name_array.include?(user_input) == false
+    puts "Invalid input. Are you sure that monster exists?"
+    delete_monster
+  else
+    puts "Invalid input"
+  end
+end
+
+
+
+
+
+
