@@ -12,3 +12,109 @@
   INSERT INTO classes (class_name, description) VALUES ("Monk","Unbelievably skilled in unarmed combat. They could just surprise you...");
   INSERT INTO classes (class_name, description) VALUES ("Druid","Friend of the forest. Excellent healing powers and very strong");
   INSERT INTO classes (class_name, description) VALUES ("Deprived","A waste of flesh. Unbelievably useless, just awful.");
+
+
+INSERT INTO monsters (monster_name, description, location) VALUES ("Mountain Giant", "Collosal humanoid figures capable of immense strength and fortitude. Rarely freindly...", "Mountains and hilly regions")
+INSERT INTO monsters (monster_name, description, location) VALUES ("Lich", "Undead wizards bound to the service of the dark arts. Not fond of mortals.", "Tombs, crypts, dungeons, underground dwellings.")
+
+INSERT INTO monsters (monster_name, description, location) VALUES (“Mind Flayer”, “Interdimensional creatures capable of horrifying telekinetic attacks”, “Deep dark underground dwellings, ancient temples”);
+INSERT INTO monsters (monster_name, description, location) VALUES (“Owlbear”, “Terrifying half bear half owl hybrid, made by wizards in ancient times. extremely ferocious”, “Forests, highlands, and tundra”)
+INSERT INTO monsters (monster_name, description, location) VALUES (“Ghoul”, “Undead ancient creatures, created from the tortured souls of humans”, “Wherever necromancers and Lich’s dwell”);
+INSERT INTO monsters (monster_name, description, location) VALUES (“Ghoul”, “Undead ancient creatures, created from the tortured souls of humans”, “Wherever necromancers and Lich’s dwell”);
+INSERT INTO monsters (monster_name, description, location) VALUES (“Zombie”, “Resurrected dead humans, constantly searching for their next source of food”, “graveyards, tombs, dungeons”);
+INSERT INTO monsters (monster_name, description, location) VALUES (“Bear”, “Do you really need a description on a bear?”, “Forests, highlands, tundra”);
+INSERT INTO monsters (monster_name, description, location) VALUES (“Dragon”, “Ferocious scaled flying creatures, often imbued with ancient magics”, “Mountains, highlands, and hillside caves”);
+
+INSERT INTO monsters (monster_name, description, location) VALUES ("Possessed Armor", "Steel plate armor possessed by the tortured souls of long dead soldiers.", "crypts, castles, dungeons");
+INSERT INTO monsters (monster_name, description, location) VALUES (“Mind Flayer”, “Interdimensional creatures capable of horrifying telekinetic attacks”, “Deep dark underground dwellings, ancient temples”);
+
+
+require_relative 'dungeon'
+
+create_classes = <<-SQLITE3
+  CREATE TABLE IF NOT EXISTS classes(
+	    id INTEGER PRIMARY KEY,
+	    class_name VARCHAR(255),
+	    description VARCHAR(255)
+	);
+SQLITE3
+
+create_table = <<-SQLITE3
+  CREATE TABLE IF NOT EXISTS characters(
+	    id INTEGER PRIMARY KEY,
+	    name VARCHAR(255),
+	    age INT,
+	    c_class VARCHAR(255)
+	);
+SQLITE3
+
+$DATABASE.execute(create_table)
+
+
+def character_creation
+  puts "Enter Character Name"
+  name = gets.chomp
+  puts "Enter Character Age"
+  age = gets.chomp
+  puts "Enter Character Class"
+  c_class = gets.chomp
+
+  $DATABASE.execute("INSERT INTO characters (name, age, c_class) VALUES (?, ?, ?)", [name, age, c_class])
+
+  puts "#{name} is a #{age} year old #{c_class}"
+  puts "You character #{name} has been added to the party."
+  puts " "
+
+  main_menu
+end
+
+def character_info
+	puts "Character information:
+	(1). Character classes
+	(2). Current characters
+	(0). <---Back"
+	character_input = gets.chomp
+
+	if character_input == "1"
+		puts ""
+		print_class_info
+	elsif character_input == "2"
+		p "here's all the other stuff"
+	elsif character_input == "0" 
+		main_menu
+	else
+		puts "Please enter valid number"
+		character_info
+	end
+end
+
+def print_class_info
+	puts "Enter class number for information"
+	c_name_hash = $DATABASE.execute("SELECT class_name FROM classes;")
+
+	i = 0
+	c_name_hash.each do |name|
+		i += 1
+		puts "(#{i}) #{name["class_name"]}"
+	end
+	puts "(0) <---Back"
+	puts ""
+	puts "Enter number for info on class, or 0 to exit."
+	class_input = gets.chomp.to_i
+	class_name = $DATABASE.execute("SELECT class_name, id FROM classes WHERE id = #{class_input}")
+	puts "#{class_name[0]["class_name"]}:"
+
+	if class_input == 0
+		character_info
+	else 
+		puts "#{$DATABASE.execute("SELECT description FROM classes WHERE id = #{class_input}")[0]["description"]}"
+	end
+	puts " "
+	puts "Press enter to check another class, 0 to go back"
+	after_input = gets.chomp
+	if after_input == "0"
+		character_info
+	else
+		print_class_info
+	end
+end
