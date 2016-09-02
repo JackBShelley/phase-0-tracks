@@ -11,7 +11,7 @@ def character_information
 	user_input = gets.chomp
 
 	if user_input == "1"
-		p "class info"
+		class_info
 	elsif user_input == "2"
 		p "race info"
 	elsif user_input == "3"
@@ -21,4 +21,44 @@ def character_information
 	else 
 		puts "Invalid input. Enter 0-3"
 	end
+end
+
+def class_info
+puts " "
+  puts "Enter class number for information"
+  name_hash = $DATABASE.execute("SELECT name FROM classes;")
+
+  i = 0
+  name_hash.each do |name|
+    i += 1
+    puts "(#{i}) #{name["name"]}"
+  end
+  puts "(0) <---Back"
+  puts ""
+  puts "Enter number for info on class, or 0 to exit."
+  class_input = gets.chomp.to_i
+  class_name = $DATABASE.execute("SELECT name, id FROM classes WHERE id = #{class_input}")
+
+  if class_input == 0
+    character_information
+  else
+    puts " "
+    puts "#{class_name[0][0]}"
+    puts "#{$DATABASE.execute("SELECT description FROM classes WHERE id = #{class_input}")[0]["description"]}"
+  end
+
+  puts " "
+  puts "Press enter to check another class, 0 to go back"
+
+  after_input = gets.chomp
+
+  if after_input == "0"
+    character_information
+  else 
+    class_info
+  end
+end
+
+def character_info
+
 end

@@ -82,6 +82,7 @@ end
 def delete_monster
   puts "What monster would you like to delete? 0 to go back"
   user_input = gets.chomp
+  puts " "
   monster_names = $DATABASE.execute("SELECT name FROM monsters;")
   monster_name_array = []
   monster_names.each do |monster|
@@ -101,9 +102,11 @@ def delete_monster
     monster_index
   elsif monster_name_array.include?(user_input) == false
     puts "Invalid input. Are you sure that monster exists?"
+    puts " "
     delete_monster
   else
     puts "Invalid input"
+    delete_monster
   end
 end
 
