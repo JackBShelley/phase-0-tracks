@@ -90,7 +90,13 @@ def delete_monster
 
   if monster_name_array.include?(user_input) == true
     puts "Deleting #{user_input} from monster index..."
-    puts "#{$DATABASE.execute("Select name from monsters where name = #{user_input}")}"
+
+    delete_entry = <<-SQLITE3
+      DELETE FROM monsters WHERE name = "#{user_input}";
+      SQLITE3
+
+    $DATABASE.execute(delete_entry)
+
   elsif user_input == "0"
     monster_index
   elsif monster_name_array.include?(user_input) == false
