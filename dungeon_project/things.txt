@@ -1,29 +1,29 @@
 
-  INSERT INTO classes (class_name, description) VALUES ("Mage","Basic magic user. High intelligience, low HP.");
-  INSERT INTO classes (class_name, description) VALUES ("Paladin","Warrior of the gods. High strength and faith.");
-  INSERT INTO classes (class_name, description) VALUES ("Barbarian","Ruthless killer, very high strength, ver low intelligience");
-  INSERT INTO classes (class_name, description) VALUES ("Necromancer","Commander of the dead. High intelligience, typically evil...");
-  INSERT INTO classes (class_name, description) VALUES ("Bard","Charismatic and musically gifted. Useless in combat.");
-  INSERT INTO classes (class_name, description) VALUES ("Thief","Fast and agile, excellent at stealth and lockpicking");
-  INSERT INTO classes (class_name, description) VALUES ("Rogue","Master of the bow. High dexterity and perception");
-  INSERT INTO classes (class_name, description) VALUES ("Mercenary","Only in it for the gold. Especially good with the longsword");
-  INSERT INTO classes (class_name, description) VALUES ("Soldier","Skilled with the sword and shield. Well equipped and well traveled");
-  INSERT INTO classes (class_name, description) VALUES ("Cleric","A healer of the high church. An excellent resource for any party");
-  INSERT INTO classes (class_name, description) VALUES ("Monk","Unbelievably skilled in unarmed combat. They could just surprise you...");
-  INSERT INTO classes (class_name, description) VALUES ("Druid","Friend of the forest. Excellent healing powers and very strong");
-  INSERT INTO classes (class_name, description) VALUES ("Deprived","A waste of flesh. Unbelievably useless, just awful.");
+  INSERT INTO classes (name, description) VALUES ("Mage","Basic magic user. High intelligence, low HP.");
+  INSERT INTO classes (name, description) VALUES ("Paladin","Warrior of the gods. High strength and faith.");
+  INSERT INTO classes (name, description) VALUES ("Barbarian","Ruthless killer, very high strength, very low intelligence");
+  INSERT INTO classes (name, description) VALUES ("Necromancer","Commander of the dead. High intelligence, typically evil...");
+  INSERT INTO classes (name, description) VALUES ("Bard","Charismatic and musically gifted. Useless in combat.");
+  INSERT INTO classes (name, description) VALUES ("Thief","Fast and agile, excellent at stealth and lockpicking");
+  INSERT INTO classes (name, description) VALUES ("Rogue","Master of the bow. High dexterity and perception");
+  INSERT INTO classes (name, description) VALUES ("Mercenary","Only in it for the gold. Especially good with the longsword");
+  INSERT INTO classes (name, description) VALUES ("Soldier","Skilled with the sword and shield. Well equipped and well traveled");
+  INSERT INTO classes (name, description) VALUES ("Cleric","A healer of the high church. An excellent resource for any party");
+  INSERT INTO classes (name, description) VALUES ("Monk","Unbelievably skilled in unarmed combat. They could just surprise you...");
+  INSERT INTO classes (name, description) VALUES ("Druid","Friend of the forest. Excellent healing powers and very strong");
+  INSERT INTO classes (name, description) VALUES ("Deprived","A waste of flesh. Unbelievably useless, just awful.");
 
 
-INSERT INTO monsters (monster_name, description, location) VALUES ("Mountain Giant", "Collosal humanoid figures capable of immense strength and fortitude. Rarely freindly...", "Mountains and hilly regions")
-INSERT INTO monsters (monster_name, description, location) VALUES ("Lich", "Undead wizards bound to the service of the dark arts. Not fond of mortals.", "Tombs, crypts, dungeons, underground dwellings.")
+INSERT INTO monsters (name, description, location) VALUES ("Mountain Giant", "Collosal humanoid figures capable of immense strength and fortitude. Rarely freindly...", "Mountains and hilly regions”);
+INSERT INTO monsters (name, description, location) VALUES ("Lich", "Undead wizards bound to the service of the dark arts. Not fond of mortals.", "Tombs, crypts, dungeons, underground dwellings.”);
 
-INSERT INTO monsters (monster_name, description, location) VALUES (“Mind Flayer”, “Interdimensional creatures capable of horrifying telekinetic attacks”, “Deep dark underground dwellings, ancient temples”);
-INSERT INTO monsters (monster_name, description, location) VALUES (“Owlbear”, “Terrifying half bear half owl hybrid, made by wizards in ancient times. extremely ferocious”, “Forests, highlands, and tundra”)
-INSERT INTO monsters (monster_name, description, location) VALUES (“Ghoul”, “Undead ancient creatures, created from the tortured souls of humans”, “Wherever necromancers and Lich’s dwell”);
-INSERT INTO monsters (monster_name, description, location) VALUES (“Ghoul”, “Undead ancient creatures, created from the tortured souls of humans”, “Wherever necromancers and Lich’s dwell”);
-INSERT INTO monsters (monster_name, description, location) VALUES (“Zombie”, “Resurrected dead humans, constantly searching for their next source of food”, “graveyards, tombs, dungeons”);
-INSERT INTO monsters (monster_name, description, location) VALUES (“Bear”, “Do you really need a description on a bear?”, “Forests, highlands, tundra”);
-INSERT INTO monsters (monster_name, description, location) VALUES (“Dragon”, “Ferocious scaled flying creatures, often imbued with ancient magics”, “Mountains, highlands, and hillside caves”);
+INSERT INTO monsters (name, description, location) VALUES (“Mind Flayer”, “Interdimensional creatures capable of horrifying telekinetic attacks”, “Deep dark underground dwellings, ancient temples”);
+INSERT INTO monsters (name, description, location) VALUES (“Owlbear”, “Terrifying half bear half owl hybrid, made by wizards in ancient times. extremely ferocious”, “Forests, highlands, and tundra”)
+INSERT INTO monsters (name, description, location) VALUES (“Ghoul”, “Undead ancient creatures, created from the tortured souls of humans”, “Wherever necromancers and Lich’s dwell”);
+INSERT INTO monsters (name, description, location) VALUES (“Ghoul”, “Undead ancient creatures, created from the tortured souls of humans”, “Wherever necromancers and Lich’s dwell”);
+INSERT INTO monsters (name, description, location) VALUES (“Zombie”, “Resurrected dead humans, constantly searching for their next source of food”, “graveyards, tombs, dungeons”);
+INSERT INTO monsters (name, description, location) VALUES (“Bear”, “Do you really need a description on a bear?”, “Forests, highlands, tundra”);
+INSERT INTO monsters (name, description, location) VALUES (“Dragon”, “Ferocious scaled flying creatures, often imbued with ancient magics”, “Mountains, highlands, and hillside caves”);
 
 INSERT INTO monsters (monster_name, description, location) VALUES ("Possessed Armor", "Steel plate armor possessed by the tortured souls of long dead soldiers.", "crypts, castles, dungeons");
 INSERT INTO monsters (monster_name, description, location) VALUES (“Mind Flayer”, “Interdimensional creatures capable of horrifying telekinetic attacks”, “Deep dark underground dwellings, ancient temples”);
@@ -118,3 +118,19 @@ def print_class_info
 		print_class_info
 	end
 end
+
+sqlite> select characters.name, classes.name FROM characters JOIN classes ON characters.class_id = classes.id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
