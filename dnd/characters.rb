@@ -13,7 +13,7 @@ def character_information
 	if user_input == "1"
 		class_info
 	elsif user_input == "2"
-		p "race info"
+		race_info
 	elsif user_input == "3"
 		p "current characters"
 	elsif user_input == "0"
@@ -56,6 +56,42 @@ puts " "
     character_information
   else 
     class_info
+  end
+end
+
+def race_info
+puts " "
+  puts "Enter race number for information"
+  name_hash = $DATABASE.execute("SELECT name FROM races;")
+
+  i = 0
+  name_hash.each do |name|
+    i += 1
+    puts "(#{i}) #{name["name"]}"
+  end
+  puts "(0) <---Back"
+  puts ""
+  puts "Enter number for info on a race, or 0 to exit."
+  race_input = gets.chomp.to_i
+  race_name = $DATABASE.execute("SELECT name, id FROM races WHERE id = #{race_input}")
+
+  if race_input == 0
+    character_information
+  else
+    puts " "
+    puts "#{race_name[0][0]}"
+    puts "#{$DATABASE.execute("SELECT description FROM races WHERE id = #{race_input}")[0]["description"]}"
+  end
+
+  puts " "
+  puts "Press enter to check another race, 0 to go back"
+
+  after_input = gets.chomp
+
+  if after_input == "0"
+    character_information
+  else 
+    race_info
   end
 end
 
