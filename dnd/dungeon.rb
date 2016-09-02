@@ -5,6 +5,9 @@ require_relative 'party'
 require_relative 'monsters'
 require_relative 'world'
 
+$DATABASE = SQLite3::Database.new("dungeon.db")
+$DATABASE.results_as_hash = true
+
 def main_menu
 	puts ""
 	puts "Hello! What would you like to do?
