@@ -13,7 +13,7 @@ def party_info
 	if user_input == "1"
 		current_party
 	elsif user_input == "2"
-		p "delete party member"
+		delete_party_member
 	elsif user_input == "0"
 		main_menu
 	else 
@@ -37,6 +37,37 @@ def current_party
     pause = gets.chomp
 
     party_info
+end
+
+def delete_party_member
+  puts "What party member would you like to delete? 0 to go back"
+  user_input = gets.chomp
+  puts " "
+  party_names = $DATABASE.execute("SELECT name FROM characters;")
+  party_name_array = []
+  party_names.each do |character|
+    party_name_array << character["name"]
+  end
+
+  if party_name_array.include?(user_input) == true
+    puts "Deleting #{user_input} from party..."
+
+    delete_entry = <<-SQLITE3
+      DELETE FROM characters WHERE name = "#{user_input}";
+      SQLITE3
+
+    $DATABASE.execute(delete_entry)
+    party_info
+  elsif user_input == "0"
+    party_info
+  elsif party_name_array.include?(user_input) == false
+    puts "Invalid input. Are you sure that person exists?"
+    puts " "
+    delete_party_member
+  else
+    puts "Invalid input"
+    delete_party_member
+  end
 end
 
 
