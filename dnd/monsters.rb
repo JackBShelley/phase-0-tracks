@@ -14,7 +14,7 @@ def monster_index
   elsif character_input == "2"
     p "monsters by location"
   elsif character_input == "3"
-    p "add monster"
+    add_monster
   elsif character_input == "4"
     "delete monster"
   elsif character_input == "0"
@@ -59,4 +59,22 @@ def monster_list_name
   else 
     monster_list_name
   end
+end
+
+
+def add_monster
+  puts "Enter New Monster Name"
+  name = gets.chomp
+  puts "Enter Monster description"
+  description = gets.chomp
+  puts "Enter Monster's typical environment (I.E Forest, desert, mountains, etc.)"
+  location = gets.chomp
+
+  $DATABASE.execute("INSERT INTO monsters (name, description, location) VALUES (?, ?, ?)", [name, description, location])
+
+  puts "New Entry in Monster Index: #{name}"
+  puts "Description: #{description}"
+  puts "Native to the #{location}"
+
+  monster_index
 end
