@@ -24,9 +24,12 @@ INSERT INTO monsters (name, description, location) VALUES (“Ghoul”, “Undea
 INSERT INTO monsters (name, description, location) VALUES (“Zombie”, “Resurrected dead humans, constantly searching for their next source of food”, “graveyards, tombs, dungeons”);
 INSERT INTO monsters (name, description, location) VALUES (“Bear”, “Do you really need a description on a bear?”, “Forests, highlands, tundra”);
 INSERT INTO monsters (name, description, location) VALUES (“Dragon”, “Ferocious scaled flying creatures, often imbued with ancient magics”, “Mountains, highlands, and hillside caves”);
-
 INSERT INTO monsters (monster_name, description, location) VALUES ("Possessed Armor", "Steel plate armor possessed by the tortured souls of long dead soldiers.", "crypts, castles, dungeons");
 INSERT INTO monsters (monster_name, description, location) VALUES (“Mind Flayer”, “Interdimensional creatures capable of horrifying telekinetic attacks”, “Deep dark underground dwellings, ancient temples”);
+
+
+INSERT INTO monsters (name, description, location) VALUES ("","","")
+
 
 
 require_relative 'dungeon'
@@ -123,9 +126,11 @@ select characters.name, classes.name FROM characters JOIN classes ON characters.
 
 SELECT realms.name, world.name, realms.description FROM realms JOIN world ON realms.world_id = world.id;
 
+SELECT characters.name, characters.age, classes.name, races.name FROM characters LEFT OUTER JOIN classes ON classes.id = class_id LEFT OUTER JOIN races ON races.id = race_id;
 
+SELECT monsters.name, monsters.age, classes.name, races.name FROM characters LEFT OUTER JOIN classes ON classes.id = class_id LEFT OUTER JOIN races ON races.id = race_id;
 
-
+SELECT monsters.name, monsters.location from monsters
 
 
 

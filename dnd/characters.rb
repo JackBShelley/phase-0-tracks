@@ -15,7 +15,7 @@ def character_information
 	elsif user_input == "2"
 		race_info
 	elsif user_input == "3"
-		p "current characters"
+		current_characters
 	elsif user_input == "0"
 		main_menu
 	else 
@@ -95,3 +95,19 @@ puts " "
   end
 end
 
+def current_characters
+	party = <<-SQLITE3
+      SELECT characters.name, characters.age, classes.name, races.name FROM characters LEFT OUTER JOIN classes ON classes.id = class_id LEFT OUTER JOIN races ON races.id = race_id;
+      SQLITE3
+	puts "The current characters are..."
+	puts " "
+	party_array = $DATABASE.execute(party)
+	party_array.each do |character|
+		puts "#{character[0]}, a #{character[1]} year old #{character[3]} #{character[2]}"
+	end
+	puts " "
+    puts "Press enter to continue"
+    pause = gets.chomp
+
+    character_information
+end

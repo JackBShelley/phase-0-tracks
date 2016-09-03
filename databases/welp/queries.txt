@@ -21,5 +21,3 @@ Mandy|Kaling|Amir's Towing|5
 Bradford|Pitt|Amir's Towing|3
 Steven|Wonder|Amir's Towing|1
 Steven|Wonder|Amir's Towing|3
-
-SELECT characters.name, characters.age, classes.name, races.name FROM characters LEFT OUTER JOIN classes ON classes.id = class_id LEFT OUTER JOIN races ON races.id = race_id;
