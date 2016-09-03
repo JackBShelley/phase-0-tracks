@@ -61,7 +61,7 @@ def dice_roll_history
     	if roll["dice_size"] > 1
     	puts "Rolled a #{roll["value"]} on a d#{roll["dice_size"]}"
     	else
-    		p" "
+    		puts " "
     	end
     end
     roll_dice

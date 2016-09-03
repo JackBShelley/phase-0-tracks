@@ -149,7 +149,7 @@ def monster_list_location
 
 
   puts "
-Forest Monsters
+Forest/Plains Monsters
 ----------------"
   forest_monsters.each do |name|
     puts "#{name["name"]}"
