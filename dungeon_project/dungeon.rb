@@ -25,8 +25,16 @@ create_table = <<-SQLITE3
 	);
 SQLITE3
 
-$DATABASE.execute(create_table)
+create_classes = <<-SQLITE3
+  CREATE TABLE IF NOT EXISTS classes(
+	    id INTEGER PRIMARY KEY,
+	    class_name VARCHAR(255),
+	    description VARCHAR(255)
+	);
+SQLITE3
 
+$DATABASE.execute(create_table)
+$DATABASE.execute(create_classes)
 
 
 def monster_index
@@ -83,45 +91,9 @@ def monster_list_name
   end
 end
 
-
-# #retrieve data for character name
-# #retrive party data
-
 def print_party_info
-	$DATABASE.execute("")
+
 end
-
-require_relative 'dungeon'
-
-create_table = <<-SQLITE3
-  CREATE TABLE IF NOT EXISTS characters(
-	    id INTEGER PRIMARY KEY,
-	    name VARCHAR(255),
-	    age INT,
-	    c_class VARCHAR(255)
-	);
-SQLITE3
-
-
-create_classes = <<-SQLITE3
-  CREATE TABLE IF NOT EXISTS classes(
-	    id INTEGER PRIMARY KEY,
-	    class_name VARCHAR(255),
-	    description VARCHAR(255)
-	);
-SQLITE3
-
-create_table = <<-SQLITE3
-  CREATE TABLE IF NOT EXISTS characters(
-	    id INTEGER PRIMARY KEY,
-	    name VARCHAR(255),
-	    age INT,
-	    c_class VARCHAR(255)
-	);
-SQLITE3
-
-$DATABASE.execute(create_table)
-
 
 def character_creation
   puts "Enter Character Name"
@@ -140,26 +112,6 @@ def character_creation
   main_menu
 end
 
-def character_info
-	puts "Character information:
-	(1). Character classes
-	(2). Current characters
-	(0). <---Back"
-	character_input = gets.chomp
-
-	if character_input == "1"
-		puts ""
-		print_class_info
-	elsif character_input == "2"
-		p "here's all the other stuff"
-	elsif character_input == "0" 
-		main_menu
-	else
-		puts "Please enter valid number"
-		character_info
-	end
-end
-
 def print_class_info
 	puts "Enter class number for information"
 	c_name_hash = $DATABASE.execute("SELECT class_name FROM classes;")
@@ -176,14 +128,18 @@ def print_class_info
 	class_name = $DATABASE.execute("SELECT class_name, id FROM classes WHERE id = #{class_input}")
 	puts "#{class_name[0]["class_name"]}:"
 
+	puts "#{class_input}"
+
 	if class_input == 0
 		character_info
-	else 
+	else
 		puts "#{$DATABASE.execute("SELECT description FROM classes WHERE id = #{class_input}")[0]["description"]}"
 	end
+
 	puts " "
 	puts "Press enter to check another class, 0 to go back"
 	after_input = gets.chomp
+
 	if after_input == "0"
 		character_info
 	else
@@ -191,18 +147,32 @@ def print_class_info
 	end
 end
 
+def world_info
+  puts "World Info:
+  (1). Input world info
+  (2). Read World info
+  (0). <---Back"
+  character_input = gets.chomp
 
-create_classes = <<-SQLITE3
-  CREATE TABLE IF NOT EXISTS classes(
-	    id INTEGER PRIMARY KEY,
-	    class_name VARCHAR(255),
-	    description VARCHAR(255)
-	);
-SQLITE3
+  if character_input == "1"
+    create_world_info
+  elsif character_input == "2"
+    read_world_info
+  elsif character_input == "0"
+    main_menu
+  else
+    puts "Please enter valid number"
+    character_info
+  end
+end
 
-$DATABASE.execute(create_classes)
+def create_world_info
 
-#allow user to select actions
+end
+
+def read_world_info
+
+end
 
 def main_menu
 	puts "Hello! What would you like to do?
@@ -226,7 +196,7 @@ def main_menu
 	elsif  menu_input == "4"
 		monster_index
 	elsif  menu_input == "5"
-		puts "Printing world information..."
+		world_info
 	elsif  menu_input == "0"
 		abort('Thank you!')
 	else 
