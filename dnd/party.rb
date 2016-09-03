@@ -4,9 +4,9 @@ require 'sqlite3'
 def party_info
 		puts ""
 	puts "Party Information:
-	(1) Current Party
-	(2) Delete party member
-	(0) <---Back
+(1) Current Party
+(2) Delete party member
+(0) <---Back
 	"
 	user_input = gets.chomp
 

@@ -141,6 +141,13 @@ def monster_list_location
     SQLITE3
   dungeon_monsters = $DATABASE.execute(monster_locations_dungeon)
 
+  monster_locations_city = <<-SQLITE3
+     SELECT name FROM monsters WHERE
+     location="City";
+    SQLITE3
+  city_monsters = $DATABASE.execute(monster_locations_city)
+
+
   puts "
 Forest Monsters
 ----------------"
@@ -166,6 +173,13 @@ Desert Monsters
 Dungeon Monsters
 ----------------"
   dungeon_monsters.each do |name|
+    puts "#{name["name"]}"
+  end
+
+  puts "
+City Monsters
+----------------"
+  city_monsters.each do |name|
     puts "#{name["name"]}"
   end
 
@@ -217,9 +231,11 @@ def edit_monster_info
       UPDATE monsters SET "#{edit_input}"="#{new_value}" WHERE name = "#{user_input}";
       SQLITE3
 
-    $DATABASE.execture(edit_entry)
+    $DATABASE.execute(edit_entry)
 
     p "#{user_input} has been updated"
+
+    monster_index
 
   elsif user_input == "0"
     monster_index

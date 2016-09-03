@@ -41,7 +41,7 @@ def roll_dice_action
 		user_input = gets.chomp.to_i
 
 		add_roll = <<-SQLITE3
-         INSERT INTO dice_rolls (value) VALUES (#{roll});
+         INSERT INTO dice_rolls (value, dice_size) VALUES (#{roll}, #{user_input});
         SQLITE3
         $DATABASE.execute(add_roll)
 		end
@@ -54,11 +54,15 @@ def roll_dice_action
 end
 
 def dice_roll_history
-	roll_history = $DATABASE.execute("SELECT * from dice_rolls order by id desc limit 10;")
+	roll_history = $DATABASE.execute("SELECT * from dice_rolls order by id desc limit 11;")
 	p " "
 	puts "Roll History (Most recent to least)"
     roll_history.each do |roll|
-    	puts "#{roll["value"]}"
+    	if roll["dice_size"] > 1
+    	puts "Rolled a #{roll["value"]} on a d#{roll["dice_size"]}"
+    	else
+    		p" "
+    	end
     end
     roll_dice
 end
