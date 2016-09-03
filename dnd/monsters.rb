@@ -141,39 +141,32 @@ def monster_list_location
     SQLITE3
   dungeon_monsters = $DATABASE.execute(monster_locations_dungeon)
 
-
-  i = 0
-
   puts "
 Forest Monsters
 ----------------"
   forest_monsters.each do |name|
-    i += 1
-    puts "(#{i}) #{name["name"]}"
+    puts "#{name["name"]}"
   end
 
   puts "
 Mountains Monsters
 ----------------"
  mountain_monsters.each do |name|
-    i += 1
-    puts "(#{i}) #{name["name"]}"
+    puts "#{name["name"]}"
   end
 
   puts "
 Desert Monsters
 ----------------"
   desert_monsters.each do |name|
-    i += 1
-    puts "(#{i}) #{name["name"]}"
+    puts "#{name["name"]}"
   end
 
   puts "
 Dungeon Monsters
 ----------------"
   dungeon_monsters.each do |name|
-    i += 1
-    puts "(#{i}) #{name["name"]}"
+    puts "#{name["name"]}"
   end
 
 

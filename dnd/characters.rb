@@ -3,10 +3,10 @@ require 'sqlite3'
 def character_information
 	puts ""
 	puts "Character Information:
-	(1) Class Information
-	(2) Race Information
-	(3) Current Characters
-	(0) <---Back
+(1) Class Information
+(2) Race Information
+(3) Current Characters
+(0) <---Back
 	"
 	user_input = gets.chomp
 
