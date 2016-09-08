@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Index</title>
+	<link rel="stylesheet" type="text/css" href="styling.css">
+</head>
+<body>
+	<div id="top_title">Very Professional and Useful Website</div>
+	<button id='catbutton'> Cat</button>
+	<button id='dogbutton'> Dog</button>
+	<button id='lizardbutton'> Lizard</button>
+	<button id='owlbutton'> Owl</button>
+
+	<img id="cat" src="images/cat.gif">
+	<img id="dog" src="images/dog.gif">
+	<img id="lizard" src="images/lizard.gif">
+	<img id="owl" src="images/owl.gif">
+</body>
+</html>
+
+<script src="/Users/Jack/node_modules/jquery/dist/jquery.js "></script>
+
+<script>
+	$(document).ready(function() {
+
+		// $('.buttons').on('click', function() {
+		// 	var buttonId = $(this).attr('data-buttonId')
+		// 	$('#'+buttonId).fadeOut(1000);
+		// })
+
+		$('#catbutton').on('click', function() {
+			$('#cat').slideToggle(1000);
+		})
+
+		$('#dogbutton').on('click', function() {
+			$('#dog').slideToggle(1000);
+		})
+
+		$('#lizardbutton').on('click', function() {
+			$('#lizard').slideToggle(1000);
+		})
+
+		$('#owlbutton').on('click', function() {
+			$('#owl').slideToggle(1000);
+		})
+
+	});
+
+</script>
