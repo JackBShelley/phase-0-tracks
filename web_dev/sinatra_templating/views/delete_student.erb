@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Sort Students</title>
+</head>
+<body>
+
+  <form action="/students2" method="POST">
+        <input type="text" name="deleted_student" placeholder="Name">
+    <button type="submit">Delete</button>
+  </form>
+
+
+
+	<ul>
+	    <% @students.each do |student| %>
+	      <li><%= student['name'] %>, <%= student['age'] %></li>
+	    <% end %>
+    </ul>
+
+</body>
+</html>
